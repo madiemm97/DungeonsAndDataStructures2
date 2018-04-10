@@ -13,7 +13,7 @@ public class Room
 {
     private LinkedList<Player> players;
     private LinkedList<NPC> npcs;
-    private Dictionary<String, Exit> exits;
+    private Hashtable<String, Exit> exits;
     private String description;
     private String name;
 
@@ -24,6 +24,18 @@ public class Room
         this.players = new LinkedList<Player>();
         this.npcs = new LinkedList<NPC>();
         this.exits = new Hashtable<String, Exit>();
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public LinkedList<NPC> getNpcs() {
+        return npcs;
     }
 
     //Exit Management
@@ -98,5 +110,16 @@ public class Room
     {
         Object[] params = {n};
         this.npcs_PerformAction("removeNPC", params);
+    }
+
+    //display
+    public void displayRooms()
+    {
+        //show current contents of room
+        System.out.println("Current room: " + this.name);
+        System.out.println("Description: " + this.description);
+        System.out.println("Exits: " + this.exits);
+        System.out.println("Players: " + this.players);
+        //System.out.println("NPCs: " + this.npcs);
     }
 }

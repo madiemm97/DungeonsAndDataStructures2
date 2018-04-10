@@ -6,13 +6,71 @@
     android:layout_height="match_parent"
     tools:context="com.example.awesomefat.dungeonsanddatastructures.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/nametv"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Name:" />
+
+        <TextView
+            android:id="@+id/descriptionTV"
+            android:layout_width="match_parent"
+            android:layout_height="82dp"
+            android:text="Description:" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="92dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/charactersTVs"
+                    android:layout_width="match_parent"
+                    android:layout_height="76dp"
+                    android:text="Characters: " />
+
+            </LinearLayout>
+        </ScrollView>
+
+        <TextView
+            android:id="@+id/obviousExitsTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Obvious Exits: " />
+
+        <Button
+            android:id="@+id/northButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="North" />
+
+        <Button
+            android:id="@+id/southButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="South" />
+
+        <Button
+            android:id="@+id/eastButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="East" />
+
+        <Button
+            android:id="@+id/westButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="West" />
+
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
