@@ -7,7 +7,8 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+{
 
     @Override
     private TextView nametv;
@@ -56,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         s120.takeExit("north");
         s120.takeExit("west");
         csHallway.takeExit("south");
-        s120.displayRooms();
+        s120.display();
 
 
     }

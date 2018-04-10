@@ -15,18 +15,21 @@ public class Exit
         this.r2 = r2;
     }
 
-    public void takeExit(Player p)
+    public boolean takeExit(Player p)
     {
         //make the player move to the room they are NOT currently in.
-
-        if(p.getCurrentRoom().equals(r1))
+        if(p.getCurrentRoom() == this.r1)
         {
-            p.setCurrentRoom(r2);
+            this.r1.removePlayer(p);
+            this.r2.addPlayer(p);
+            return true;
         }
-
-        else
+        else if(p.getCurrentRoom() == this.r2)
         {
-            p.setCurrentRoom(r1);
+            this.r2.removePlayer(p);
+            this.r1.addPlayer(p);
+            return true;
         }
+        return false;
     }
 }
