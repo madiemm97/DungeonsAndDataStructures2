@@ -26,16 +26,24 @@ public class Room
         this.exits = new Hashtable<String, Exit>();
     }
 
+    public LinkedList<Player> getPlayers() {
+        return players;
+    }
+
+    public LinkedList<NPC> getNpcs() {
+        return npcs;
+    }
+
+    public Hashtable<String, Exit> getExits() {
+        return exits;
+    }
+
     public String getDescription() {
         return description;
     }
 
     public String getName() {
         return name;
-    }
-
-    public LinkedList<NPC> getNpcs() {
-        return npcs;
     }
 
     public void display()
@@ -152,5 +160,3 @@ public class Room
         this.npcs_PerformAction("removeNPC", params);
     }
 }
-
-
