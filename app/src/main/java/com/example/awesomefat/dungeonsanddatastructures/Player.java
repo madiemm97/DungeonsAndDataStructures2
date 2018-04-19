@@ -6,6 +6,8 @@ package com.example.awesomefat.dungeonsanddatastructures;
 
 public class Player extends Character
 {
+    public Player(){}
+
     public Player(String name)
     {
         super(name);

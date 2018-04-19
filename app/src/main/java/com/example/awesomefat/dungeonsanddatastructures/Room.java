@@ -2,8 +2,10 @@ package com.example.awesomefat.dungeonsanddatastructures;
 
 import java.util.Dictionary;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.LinkedList;
+import java.util.Map;
 
 /**
  * Created by awesomefat on 3/29/18.
@@ -11,32 +13,35 @@ import java.util.LinkedList;
 
 public class Room
 {
-    private LinkedList<Player> players;
-    private LinkedList<NPC> npcs;
-    private Hashtable<String, Exit> exits;
-    private String description;
-    private String name;
+    //public LinkedList<Player> players;
+    //public LinkedList<NPC> npcs;
+    public Map<String, Exit> exits;
+    public String description;
+    public String name;
+
+    public Room() { }
 
     public Room(String name, String description)
     {
         this.name = name;
         this.description = description;
-        this.players = new LinkedList<Player>();
-        this.npcs = new LinkedList<NPC>();
-        this.exits = new Hashtable<String, Exit>();
+        //this.players = new LinkedList<Player>();
+        //this.npcs = new LinkedList<NPC>();
+        this.exits = new HashMap<String, Exit>();
     }
 
-    public LinkedList<Player> getPlayers() {
-        return players;
-    }
-
-    public LinkedList<NPC> getNpcs() {
-        return npcs;
-    }
-
-    public Hashtable<String, Exit> getExits() {
-        return exits;
-    }
+//
+//    public LinkedList<Player> getPlayers() {
+//        return players;
+//    }
+//
+//    public LinkedList<NPC> getNpcs() {
+//        return npcs;
+//    }
+//
+//    public Hashtable<String, Exit> getExits() {
+//        return exits;
+//    }
 
     public String getDescription() {
         return description;
@@ -46,57 +51,24 @@ public class Room
         return name;
     }
 
-    public void display()
-    {
-        System.out.println("Room Name: " + this.name);
-        System.out.println("Description\n" + this.description);
-        System.out.println("Also Here:");
-        System.out.println("Players");
-        for(Player p : this.players)
-        {
-            p.display();
-        }
-
-        System.out.println("NPCs");
-        for(NPC n : this.npcs)
-        {
-            n.display();
-        }
-
-        System.out.println("Obvious Exits:");
-        /*
-        Enumeration<String> keys = this.exits.keys();
-        while(keys.hasMoreElements())
-        {
-            System.out.println(keys.nextElement());
-        }
-        */
-
-        System.out.println("Obvious Exits:");
-        for(String keyName : this.exits.keySet())
-        {
-            System.out.println(keyName);
-        }
-    }
-
     //Exit Management
     synchronized  public void addExit(String direction, Exit e)
     {
         this.exits.put(direction, e);
     }
 
-    public boolean takeExit(String direction)
-    {
-        Exit temp = this.exits.get(direction);
-        if(temp != null)
-        {
-            return temp.takeExit(this.players.getFirst());
-        }
-        else
-        {
-            return false;
-        }
-    }
+//    public boolean takeExit(String direction)
+//    {
+//        Exit temp = this.exits.get(direction);
+//        if(temp != null)
+//        {
+//            return temp.takeExit(this.players.getFirst());
+//        }
+//        else
+//        {
+//            return false;
+//        }
+//    }
 
     //Player management
     synchronized private void players_PerformAction(String action, Object[] params)
@@ -104,16 +76,16 @@ public class Room
         if(action.equals("addPlayer"))
         {
             Player temp = (Player)params[0];
-            this.players.add(temp);
+            //this.players.add(temp);
             temp.setCurrentRoom(this);
         }
         else if(action.equals("removePlayer"))
         {
             Player temp = (Player)params[0];
-            if(this.players.remove(temp))
-            {
-                temp.setCurrentRoom(null);
-            }
+//            if(this.players.remove(temp))
+//            {
+//                temp.setCurrentRoom(null);
+//            }
         }
     }
 
@@ -135,16 +107,16 @@ public class Room
         if(action.equals("addNPC"))
         {
             NPC temp = (NPC)params[0];
-            this.npcs.add(temp);
+            //this.npcs.add(temp);
             temp.setCurrentRoom(this);
         }
         else if(action.equals("removeNPC"))
         {
             NPC temp = (NPC)params[0];
-            if(this.npcs.remove(temp))
-            {
-                temp.setCurrentRoom(null);
-            }
+//            if(this.npcs.remove(temp))
+//            {
+//                temp.setCurrentRoom(null);
+//            }
         }
     }
 

@@ -2,8 +2,10 @@ package com.example.awesomefat.dungeonsanddatastructures;
 
 public abstract class Character
 {
-    protected String name;
-    protected Room currentRoom;
+    public String name;
+    public Room currentRoom;
+
+    public Character(){}
 
     public Character(String name)
     {
